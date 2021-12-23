@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// ticker <俚>心脏 -- 时钟ticker.ticker
 func main() {
 	ticker := time.NewTicker(500 * time.Microsecond)
 	done := make(chan bool)
