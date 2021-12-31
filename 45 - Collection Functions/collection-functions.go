@@ -33,7 +33,7 @@ func All(vs []string, f func(string) bool) bool {
 			return false
 		}
 	}
-	return false
+	return true
 }
 
 func Filter(vs []string, f func(string) bool) []string {
