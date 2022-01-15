@@ -21,7 +21,6 @@ func main() {
 
 	f, err := os.Open("59 - Reading Files/dat")
 	check(err)
-
 	b1 := make([]byte, 5)
 	n1, err := f.Read(b1)
 	check(err)
