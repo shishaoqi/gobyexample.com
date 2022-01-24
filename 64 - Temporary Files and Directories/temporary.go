@@ -14,6 +14,7 @@ func check(e error) {
 }
 
 func main() {
+	// os.CreatTemp, in Go version older than 1.17 you can use ioutil.TempFile
 	f, err := ioutil.TempFile("", "sample")
 	check(err)
 
