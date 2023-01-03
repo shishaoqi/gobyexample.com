@@ -17,7 +17,8 @@ func main() {
 		fmt.Println("three")
 	}
 
-	// 不带表达式的switch是实现if/else逻辑的另一种方式。这里还展示了 case 表达式也可以不使用常量
+	// You can use commas to separate multiple expression in
+	// the same case statement
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		fmt.Println("It's the weekend")
@@ -26,6 +27,7 @@ func main() {
 	}
 
 	t := time.Now()
+	// 不带表达式的switch是实现if/else逻辑的另一种方式。
 	switch {
 	case t.Hour() < 12:
 		fmt.Println("It's before noon")

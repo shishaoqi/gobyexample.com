@@ -20,5 +20,4 @@ func main() {
 	c := make([]string, len(s))
 	copy(c, s)
 	fmt.Println("cpy:", c)
-	
 }
