@@ -10,12 +10,17 @@ func (b base) describer() string {
 	return fmt.Sprintf("base with num=%v", b.num)
 }
 
+// A container embeds a base.
+// An embedding looks like a field without a name
 type container struct {
 	base
 	str string
 }
 
 func main() {
+	// When creating structs with literals, we have to initialize
+	// the embedding explicitly; here the embedded type serves as
+	// the field name.
 	co := container{
 		base: base{
 			num: 1,
@@ -28,6 +33,7 @@ func main() {
 
 	fmt.Println("describe:", co.describer())
 
+	// Interface
 	type describer interface {
 		describer() string
 	}

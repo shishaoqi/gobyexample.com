@@ -15,6 +15,9 @@ func main() {
 	for k, v := range s {
 		fmt.Println(k, " ===> ", v)
 		fmt.Println(k, " ===> ", &v)
+
+		//tmp := v
+		//m[k] = &tmp
 		m[k] = &v
 	}
 
