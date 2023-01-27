@@ -11,18 +11,19 @@ func main() {
 		requests <- i
 	}
 	close(requests)
-	limiter := time.Tick(200 * time.Millisecond)
+	limiter := time.Tick(1000 * time.Millisecond)
 	for req := range requests {
 		<-limiter
 		fmt.Println("request", req, time.Now())
 	}
 
+	// Another limiter
 	fmt.Println("---- another limiter ----")
 
 	burstyLimiter := make(chan time.Time, 3)
-	for i := 0; i < 3; i++ {
-		burstyLimiter <- time.Now()
-	}
+	// for i := 0; i < 3; i++ {
+	// 	burstyLimiter <- time.Now()
+	// }
 	go func() {
 		for t := range time.Tick(200 * time.Millisecond) {
 			burstyLimiter <- t

@@ -9,6 +9,7 @@ func main() {
 	go func() {
 		for {
 			j, more := <-jobs
+			fmt.Println("more: ", j, more)
 			if more {
 				fmt.Println("receive job", j)
 			} else {
@@ -19,12 +20,12 @@ func main() {
 		}
 	}()
 
-	for j := 1; j <= 3; j++ {
+	for j := 1; j <= 4; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
 	}
-	close(jobs) // 注释掉后，会有奇效
+	//close(jobs) // 注释掉后，会有奇效
 	fmt.Println("sent all jobs")
 
-	<- done
+	<-done
 }

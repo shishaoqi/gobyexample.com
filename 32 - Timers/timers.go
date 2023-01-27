@@ -6,16 +6,26 @@ import (
 )
 
 func main() {
-	timer := time.NewTimer(5 * time.Second)
+	timer := time.NewTimer(3 * time.Second)
 
 	<-timer.C
 	fmt.Println("timer 1 fired")
 
 	timer2 := time.NewTimer(time.Second)
 	go func() {
-		<-timer2.C
-		fmt.Println("timer 2 fired")
+		for {
+			select {
+			case <-timer2.C:
+				fmt.Println(time.Now())
+			default:
+				fmt.Println("default: ", time.Now())
+				time.Sleep(time.Second)
+			}
+		}
 	}()
+
+	time.Sleep(10 * time.Second)
+
 	stop2 := timer2.Stop()
 	if stop2 {
 		fmt.Println("timer 2 stopped")
