@@ -6,25 +6,25 @@ import (
 )
 
 type Countainer struct {
-	mu 	sync.Mutex
-	counters 	map[string]int
+	mu       sync.Mutex
+	counters map[string]int
 }
 
-func (c *Countainer) inc(name string) {
+func (c *Countainer) inc(idx string) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
-	c.counters[name]++
+	c.counters[idx]++
 }
 
 func main() {
-	c := Countainer {
+	c := Countainer{
 		counters: map[string]int{"a": 0, "b": 0},
 	}
 
 	var wg sync.WaitGroup
-	doIncrement := func(name string, n int) {
+	doIncrement := func(idx string, n int) {
 		for i := 0; i < n; i++ {
-			c.inc(name)
+			c.inc(idx)
 		}
 		wg.Done()
 	}
