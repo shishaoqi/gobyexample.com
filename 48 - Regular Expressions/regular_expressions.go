@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	// regular expressions ==> regexp
 	match, _ := regexp.MatchString("p([a-z]+)ch", "peach")
 	fmt.Println(match)
 

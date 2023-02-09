@@ -15,7 +15,7 @@ func main() {
 	p(now.Hour())
 	p(now.Minute())
 	p(now.Second())
-	p(now.Nanosecond())
+	p(now.Nanosecond()) // 纳秒偏移
 	p(now.Location())
 	p(now.Weekday())
 

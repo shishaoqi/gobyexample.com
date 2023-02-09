@@ -21,4 +21,6 @@ func main() {
 
 	slice1 = append(slice1, 7, 8, 9, 10, 11, 12)
 	fmt.Println("slice1 new caption:", cap(slice1))
+
+	fmt.Println(arr1[1:2])
 }
